@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Heriyanto"
+  given-names: "Mohammad"
+  orcid: "https://orcid.org/0000-0003-2182-2866"
+title: "MH1DDC"
+version: v0.1.0
+date-released: 2020
+url: "https://github.com/mheriyanto/MH1DDC"
+preferred-citation:
+  type: conference-paper
+  authors:
+  - family-names: "Heriyanto"
+    given-names: "Mohammad"
+    orcid: "https://orcid.org/0000-0003-2182-2866"
+  - family-names: "Srigutomo"
+    given-names: "Wahyu"
+    orcid: "https://orcid.org/0000-0001-6483-2410"
+  doi: "10.1088/1742-6596/877/1/012066"
+  url: "https://doi.org/10.1088/1742-6596/877/1/012066"
+  journal: "Journal of Physics: Conference Series"
+  month: 7
+  publisher: "IOP Publishing"
+  start: 1 # First page number
+  end: 10 # Last page number
+  title: "1-D DC Resistivity Inversion Using Singular Value Decomposition and Levenberg-Marquardt’s Inversion Schemes"
+  issue: 1
+  volume: 877
+  year: 2017
+  abstract: "Exploration of natural or energy resources requires geophysical survey to determine the subsurface structure, such as DC resistivity method. In this research, field and synthetic data were used using Schlumberger configuration. One-dimensional (1-D) DC resistivity inversion was carried out using Singular Value Decomposition (SVD) and Levenberg-Marquardt (LM) techniques to obtain layered resistivity structure. We have developed software to perform both inversion methods accompanied by a user-friendly interface. Both of the methods were compared one another to determine the number of iteration, robust to noise, elapsed time of computation, and inversion results. SVD inversion generated faster process and better results than LM did. The inversion showed both of these methods were appropriate to interpret subsurface resistivity structure."
