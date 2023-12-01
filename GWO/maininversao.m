@@ -70,10 +70,10 @@ lb = [1 1 1 1 1 1 1];
 ub = [ 500 50 500 50 10 50 50];
 dim = length(lb);
 
-fobj = @(m) 1/length(r_ruido1) * norm(r_ruido1 - dcal(m, ab, nCam))
+fobj = @(m) 1/length(r_ruido1) * norm(r_ruido1 - dcal(m, ab, nCam))'
+
 
 [fval,m,Convergence_curve]=GWO(N,Max_iteration,lb,ub,dim,fobj);
-
 %Draw objective space
 semilogy(Convergence_curve,'Color','r')
 title('Objective space')
@@ -83,6 +83,6 @@ ylabel('Best score obtained so far');
 axis tight
 grid on
 box on
-legend('I-GWO')
+legend('GWO')
 
 
