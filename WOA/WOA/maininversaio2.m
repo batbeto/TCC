@@ -55,27 +55,27 @@ close all
 clear
 clc
 
-nCam = 3;
-%r = [10,390,10];    % resistivity (Ohm-m)
-%t = [10,250];
+nCam = 5;
+%r = [10,50,100,20,400];    % resistivity (Ohm-m)
+%t = [2,15,20,25];
 ab = [1 2 5 10 30 50 100 200 300 400 500 600 700 800 900 1000];
 %m = [r t];
-N = 10; % Number of search agents
-Max_iteration = 50; % Maximum numbef of iterations
+N = 300; % Number of search agents
+Max_iteration = 500; % Maximum numbef of iterations
 load r_ruido1.mat
-dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam)
+dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam);
 
 %10 390 10 10 250 MODELO VERDADEIRO
-lb = [1 100 1 1 100];
-ub = [50 500 50 50 500];
+lb = [1 1 50 1 200 1 1 1 1];
+ub = [50 100 200 50 1000 10 50 50 50];
 dim = length(lb);
 
-fobj = @(m) (1/length(r_ruido1)) * norm(r_ruido1 - dcal(m, ab, nCam))^2
+fobj = @(m) (1/length(r_ruido1)) * norm(r_ruido1 - dcal(m, ab, nCam))^2;
 
 
-[fval,m1,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,m10,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-%save('m1.mat','m1');%save('r_ruido1.mat', 'r_ruido1');
+save('m2_10.mat','m10');%save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
 %ylabel('Função objetivo','fontweight','bold','fontsize',10);

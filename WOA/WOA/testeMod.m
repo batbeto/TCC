@@ -1,8 +1,8 @@
 clc
 clear
 nCam = 3;
-r = [350 50 1000];    % resistivity (Ohm-m)
-t = [20 10];
+r = [10 390 10];    % resistivity (Ohm-m)
+t = [10 250];
 ab = [1 2 5 10 30 50 100 200 300 400 500 600 700 800 900 1000]
 m = [r t] %100 10 100 10 4 20 20
 rhoa = mod1Dres(m, ab, nCam);

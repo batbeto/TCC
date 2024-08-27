@@ -60,22 +60,22 @@ nCam = 3;
 %t = [10,250];
 ab = [1 2 5 10 30 50 100 200 300 400 500 600 700 800 900 1000];
 %m = [r t];
-N = 10; % Number of search agents
-Max_iteration = 50; % Maximum numbef of iterations
+N = 300; % Number of search agents
+Max_iteration = 500; % Maximum numbef of iterations
 load r_ruido1.mat
-dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam)
+dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam);
 
 %10 390 10 10 250 MODELO VERDADEIRO
 lb = [1 100 1 1 100];
 ub = [50 500 50 50 500];
 dim = length(lb);
 
-fobj = @(m) (1/length(r_ruido1)) * norm(r_ruido1 - dcal(m, ab, nCam))^2
+fobj = @(m) (1/length(r_ruido1)) * norm(r_ruido1 - dcal(m, ab, nCam))^2;
 
 
-[fval,m1,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,m10,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-%save('m1.mat','m1');%save('r_ruido1.mat', 'r_ruido1');
+save('m1_10.mat','m10');%save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
 %ylabel('Função objetivo','fontweight','bold','fontsize',10);
