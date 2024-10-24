@@ -5,7 +5,7 @@ clc;
 clear;
 
 load r_ruido1.mat;
-load m_est_m1.mat;
+load m_est_m2.mat;
 %load rms_error.mat;
 
 % Load model for forward modeling
