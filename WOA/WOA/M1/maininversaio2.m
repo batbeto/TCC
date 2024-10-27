@@ -73,9 +73,9 @@ dim = length(lb);
 fobj = @(m) (1/length(r_ruido1)) * norm(r_ruido1 - dcal(m, ab, nCam))^2;
 
 
-[fval,m10,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,m9,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-save('m2_10.mat','m10');%save('r_ruido1.mat', 'r_ruido1');
+save('m2_9.mat','m9');%save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
 %ylabel('Função objetivo','fontweight','bold','fontsize',10);
