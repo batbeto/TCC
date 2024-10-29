@@ -4,22 +4,22 @@ clc;
 
 clear;
 
-load r_ruido1.mat;
-load m_est_m1.mat;
+load r_ruido2.mat;
+load m_est_m2.mat;
 %load rms_error.mat;
 
 % Load model for forward modeling
-modelr = [10,390,10]; % modelo de resistividade verdadeiro (Ohm-m)
-modelt = [10,250]; % modelo de espessura verdadeiro (m)
+modelr = [10,50,100,20,400]; % modelo de resistividade verdadeiro (Ohm-m)
+modelt = [2,15,20,25]; % modelo de espessura verdadeiro (m)
 mmodel = [modelr modelt]; % modelo verdadeiro
 
 ab = [1 2 5 10 30 50 100 200 300 400 500 600 700 800 900 1000];
 
 %m_est = m_est_m1; %SOLUÇÃO MÉDIA
 m = m_est;
-nCam=3;
-lr = 3;
-lt = 2;
+nCam = 5;
+lr = 5;
+lt = 4;
 
 r_est = m_est(1:lr);
 t_est = m_est(1+lr:lr+lt);
@@ -33,7 +33,7 @@ subplot(1,2,1)
 
 loglog(ab,rhoa_calc,'-','color','b','LineWidth',2)
 hold on
-loglog(ab,r_ruido1, '.','color','r','MarkerSize',15)
+loglog(ab,r_ruido2, '.','color','r','MarkerSize',15)
 grid on
 axis tight
 xlabel('\bf \fontsize{10}\fontname{Times}Ab/2');
@@ -63,7 +63,7 @@ set(gca,'Xscale','log');
 leg = legend('Verdadeiro','Estimado');
 %set(leg,'Location','South','fontsize',8);
 set(leg,'fontsize',8);
-axis([1 15000 0 1500]);
+axis([1 15000 0 140]);
 grid on
 xlabel('Resistividade (Ohm-m)','fontweight','bold','fontsize',10);
 ylabel('Profundidade (m)','fontweight','bold','fontsize',10);
