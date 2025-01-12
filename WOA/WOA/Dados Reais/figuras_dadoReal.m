@@ -32,19 +32,19 @@ dadosReais = [3 33.729
 
 
 ab = dadosReais(:,1);
-
+dadoReal = dadosReais(:,2);
 %load r_ruido2.mat;
 load m_est_real.mat;
 %load rms_error.mat;
 %50 10 1000 2 300
 % Load model for forward modeling
-modelr = [50,10,1000]; % modelo de resistividade verdadeiro (Ohm-m)
-modelt = [2, 300]; % modelo de espessura verdadeiro (m)
-mmodel = [modelr modelt]; % modelo verdadeiro
+%modelr = [50,10,1000]; % modelo de resistividade verdadeiro (Ohm-m)
+%modelt = [2, 300]; % modelo de espessura verdadeiro (m)
+%mmodel = [modelr modelt]; % modelo verdadeiro
 
 %ab = [1 2 5 10 30 50 100 200 300 400 500 600 700 800 900 1000];
 
-%m_est = m_est_m1; %SOLUÇÃO MÉDIA
+%m_est = m_est_real; %SOLUÇÃO MÉDIA
 m = m_est;
 nCam = 3;
 lr = 3;
@@ -62,7 +62,7 @@ subplot(1,2,1)
 
 loglog(ab,rhoa_calc,'-','color','b','LineWidth',2)
 hold on
-%%loglog(ab,r_ruido2, '.','color','r','MarkerSize',15)
+loglog(ab,dadoReal, '.','color','r','MarkerSize',15)
 grid on
 axis tight
 xlabel('\bf \fontsize{10}\fontname{Times}Ab/2');

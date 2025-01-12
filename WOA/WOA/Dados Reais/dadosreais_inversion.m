@@ -42,19 +42,18 @@ Max_iteration = 500; % Maximum numbef of iterations
 dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam);
 
 %50 10 1000 2 300 MODELO ESTIMADO DE OCCAM
-lb = [1 1 500 1 100];
-ub = [100 25 2000 10 500];
+lb = [1 1 300 0.1 500];
+ub = [200 25 2000 20 1500];
 dim = length(lb);
 
 fobj = @(m) (1/length(dadoReal)) * norm(dadoReal - dcal(m, ab, nCam))^2;
 
 
-[fval,r10,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,r8,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-save('dadoReal_r10.mat','r10');
+save('dadoReal_r8.mat','r8');
 %save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
 %ylabel('Função objetivo','fontweight','bold','fontsize',10);
 %title('Objective space')
-
