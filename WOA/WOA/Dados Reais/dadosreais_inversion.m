@@ -45,9 +45,9 @@ dim = length(lb);
 fobj = @(m) (1/length(dadoReal)) * norm(dadoReal - dcal(m, ab, nCam))^2;
 
 
-[fval,r1,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,r6,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-save('dadoReal_r1.mat','r1');
+save('dadoReal_r6.mat','r6');
 %save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
