@@ -2,34 +2,13 @@ close all
 clear
 clc
 
-dadosReais = [
-    2, 4.75;
-    3, 6.5;
-    4, 8.85;
-    5, 11;
-    6, 13;
-    8, 17.1;
-    10, 19.6;
-    15, 16.4;
-    20, 12.8;
-    30, 8.6;
-    40, 6.2;
-    50, 5.6;
-    80, 7.7;
-    100, 9.6;
-    150, 13.3;
-    200, 15;
-    250, 16;
-    300, 17.5;
-    400, 18;
-    500, 19.5;
-];
-lb = [10 1 5 1 10];
-ub = [100 10 20 5 25];
 
-ab = dadosReais(:,1);
-dadoReal = dadosReais(:,2);
+dadoReal = [20 80 20 10 20];
 
+lb = [5 30 5 1 5];
+ub = [50 150 50 20 50];
+
+ab = [5 10 20];
 
 nCam = 3;
 %r = [10,50,100,20,400];    % resistivity (Ohm-m)
@@ -37,7 +16,7 @@ nCam = 3;
 
 %m = [r t];
 N = 300; % Number of search agents
-Max_iteration = 500; % Maximum numbef of iterations
+Max_iteration = 1000; % Maximum numbef of iterations
 dcal = @(m,ab,nCam) mod1Dres(m, ab, nCam);
 
 dim = length(lb);
@@ -45,9 +24,9 @@ dim = length(lb);
 fobj = @(m) (1/length(dadoReal)) * norm(dadoReal - dcal(m, ab, nCam))^2;
 
 
-[fval,r10,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
+[fval,r1,Convergence_curve]=WOA(N,Max_iteration,lb,ub,dim,fobj);
 %Draw objective space
-save('dadoReal_r10.mat','r10');
+save('dadoReal_r1.mat','r1');
 %save('r_ruido1.mat', 'r_ruido1');
 %semilogy(Convergence_curve,'Color','r')
 %xlabel('Iteração','fontweight','bold','fontsize',10);
